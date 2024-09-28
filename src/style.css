@@ -1,0 +1,294 @@
+:root {
+  /* Colors */
+  --primary-color: #007bff;
+  --secondary-color: #6c757d;
+  --success-color: #28a745;
+  --danger-color: #dc3545;
+  --warning-color: #ffc107;
+  --info-color: #17a2b8;
+  --light-color: #f8f9fa;
+  --dark-color: #343a40;
+
+  --water-color: #b9e0ff;
+  --ship-color: #5a5a5a;
+  --hit-color: #ff6b6b;
+  --miss-color: #ffffff;
+
+  /* Typography */
+  --font-family-sans-serif: -apple-system, BlinkMacSystemFont, "Segoe UI",
+    Roboto, "Helvetica Neue", Arial, sans-serif;
+  --font-family-monospace: SFMono-Regular, Menlo, Monaco, Consolas,
+    "Liberation Mono", "Courier New", monospace;
+  --font-size-base: 1rem;
+  --font-size-large: 5rem;
+  --line-height-base: 1.5;
+
+  /* Spacing */
+  --spacing-unit: 1rem;
+  --spacing-small: calc(var(--spacing-unit) * 0.5);
+  --spacing-large: calc(var(--spacing-unit) * 2);
+
+  /* Border */
+  --border-width: 1px;
+  --border-radius: 0.25rem;
+
+  /* Transitions */
+  --transition-speed: 0.3s;
+}
+
+/* Reset and base styles */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--font-family-sans-serif);
+  font-size: var(--font-size-base);
+  line-height: var(--line-height-base);
+  color: var(--dark-color);
+  background-color: var(--light-color);
+}
+
+/* Typography */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin-bottom: var(--spacing-unit);
+}
+
+p {
+  margin-bottom: var(--spacing-unit);
+}
+
+/* Links */
+a {
+  color: var(--primary-color);
+  text-decoration: none;
+  transition: color var(--transition-speed);
+}
+
+a:hover {
+  color: var(--primary-color), 15%;
+}
+
+/* Buttons */
+.button {
+  display: inline-block;
+  padding: var(--spacing-small) var(--spacing-unit);
+  background-color: var(--primary-color);
+  color: white;
+  border: none;
+  border-radius: var(--border-radius);
+  cursor: pointer;
+  transition: background-color var(--transition-speed);
+}
+
+.button:hover {
+  background-color: rgb(31, 134, 162);
+}
+
+/* Forms */
+input,
+textarea,
+select {
+  display: block;
+  width: 100%;
+  padding: var(--spacing-small);
+  margin-bottom: var(--spacing-unit);
+  border: var(--border-width) solid var(--secondary-color);
+  border-radius: var(--border-radius);
+  font-family: inherit;
+  font-size: inherit;
+  line-height: inherit;
+}
+
+/* Utilities */
+.text-center {
+  text-align: center;
+}
+
+.mt-1 {
+  margin-top: var(--spacing-unit);
+}
+.mb-1 {
+  margin-bottom: var(--spacing-unit);
+}
+.ml-1 {
+  margin-left: var(--spacing-unit);
+}
+.mr-1 {
+  margin-right: var(--spacing-unit);
+}
+
+.p-1 {
+  padding: var(--spacing-unit);
+}
+
+/* HEADER */
+header {
+  height: 8em;
+  background-color: #5891ac;
+}
+
+h1 {
+  font-size: var(--font-size-large);
+  text-align: center;
+}
+
+/* MAIN */
+main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20rem;
+}
+
+/* FORM */
+form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  width: 100%;
+  max-width: 300px;
+  margin-top: 2rem;
+  padding: 2rem;
+  background-color: #5891ac;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+label {
+  font-size: 1.2em;
+  color: #333;
+  margin-bottom: 5px;
+}
+
+input[type="text"] {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 1em;
+}
+
+button.start-button {
+  padding: 10px 20px;
+  font-size: 1em;
+  background-color: #2877bc;
+  color: white;
+}
+
+/* GRID */
+.player-grid {
+  margin-top: 2rem;
+  border: 1px solid black;
+  display: grid;
+  grid-template-columns: repeat(10, 1fr);
+  grid-template-rows: repeat(10, 1fr);
+}
+
+.grid-cell {
+  height: 2.5rem;
+  width: 2.5rem;
+  border: 1px solid black;
+  background-color: #2877bc41;
+}
+
+h2 {
+  font-size: 1.5em;
+  color: #333;
+  text-align: center;
+}
+
+.highlight {
+  background-color: green;
+}
+
+.container {
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  margin: 20px auto;
+  background-color: #f9f9f9;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 400px;
+}
+
+.placed {
+  background-color: var(--ship-color);
+}
+
+.attacked {
+  background-color: var(--hit-color);
+}
+
+.sunk {
+  background-color: var(--hit-color);
+  border: 1px solid white; 
+  position: relative; 
+}
+
+.sunk::after {
+  content: "×";
+  font-size: 2rem;
+  color: white; 
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%); 
+}
+
+.missed {
+  background-color: var(--info-color);
+  position: relative;
+}
+
+.missed::after {
+  content: "⚪";
+  font-size: 30px;
+  color: white; /* Color of the "X" */
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%); /* Center the "X" */
+}
+
+dialog {
+  background-color: #f0f0f0;
+  border-radius: 8px;
+  padding: 2rem;
+  width: 100%;
+  margin: auto; /* Center horizontally */
+  position: fixed; /* Fix the position */
+  left: 50%; /* Center horizontally */
+  transform: translate(-50%, -50%); /* Adjust position to center */
+  text-align: center;
+}
+
+dialog::backdrop {
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+dialog .button {
+  background-color: #4caf50;
+  border-radius: 4px;
+  color: white;
+  cursor: pointer;
+  font-size: 1rem;
+  padding: 0.75rem 1.5rem;
+  text-transform: uppercase;
+  transition: background-color 0.3s ease;
+}
+
+dialog .button:hover {
+  background-color: #45a049;
+}
