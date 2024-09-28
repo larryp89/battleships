@@ -2,5 +2,5 @@
 import { defineConfig } from "vite";
 
 export default defineConfig({
-  base: "/battleships/", // Set this repository name
+  base: "/battleships/", // Set repo name
 });
